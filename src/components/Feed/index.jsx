@@ -63,7 +63,6 @@ export default function Feed() {
       }),
     );
   };
-
   return (
     <div className="feed-container">
       <span ref={feedContainerRef}></span>
@@ -76,7 +75,7 @@ export default function Feed() {
       ))}
       {hasMore && !loading && (
         <div className="load-more">
-          <span ref={loadMoreRef}>Voir plus (ou déclencher au scroll)</span>
+          <span ref={loadMoreRef}></span>
         </div>
       )}
       {loading && <p>Chargement...</p>}
