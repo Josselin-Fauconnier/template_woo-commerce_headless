@@ -47,7 +47,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
   <Provider store={store}>
     <Router
-      basename="/ecom/"
       future={{
         v7_startTransition: true,
         v7_relativeSplatPath: true,
