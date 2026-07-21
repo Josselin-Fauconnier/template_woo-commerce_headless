@@ -6,7 +6,7 @@ Ce projet est un front-end React/Vite prêt à brancher sur votre back-office Wo
 
 1. Installez les dépendances : `npm install`
 2. Lancez le serveur de dev : `npm run dev`
-3. Consultez le site en developpement sur : `http://localhost:5173/ecom/`
+3. Consultez le site en developpement sur : `http://localhost:5173`
 
 ## Configuration API
 
@@ -33,3 +33,7 @@ add_filter('allowed_http_origins', function($origins) {$origins[] = 'https://mon
     return $origins;
 });
 ```
+
+## Wireframes
+
+[Le lien Figma](https://www.figma.com/design/118Mfb9r0dApZskAojI4c4/Untitled?node-id=0-1&p=f)
