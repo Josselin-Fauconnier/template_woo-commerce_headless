@@ -52,7 +52,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     >
       <Header />
       <Routes>
-        <Route path="/" element={<Store />} />
+        {/* <Route path="/" element={<Store />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         {/* <Route path="/" element={<Home />} /> */}
