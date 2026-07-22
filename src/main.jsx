@@ -28,6 +28,8 @@ import CGU from "./pages/CGU";
 import CGV from "./pages/CGV";
 import User from "./pages/User";
 import Cart from "./pages/Cart";
+import Contact from "./pages/Contact";
+
 
 const store = configureStore({
   reducer: {
@@ -70,6 +72,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/panier" element={<Cart />} />
         <Route path="/user" element={<User />} />
         <Route path="*" element={<Error404 />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </Router>
