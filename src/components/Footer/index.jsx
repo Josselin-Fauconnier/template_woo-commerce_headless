@@ -16,28 +16,53 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer_grid">
-
         <div className="footer_col">
           <h6 className="footer_col-title">À propos</h6>
           <ul className="footer_links">
-            <li><a href="#">La marque</a></li>
-            <li><a href="#">Nos engagements</a></li>
-            <li><a href="#">Notre Savoir-Faire</a></li>
-            <li><a href="#">Les boutiques</a></li>
-            <li><a href="#">Notre site de fourniture de café pour professionnels</a></li>
-            <li><a href="#">Les avis dans la presse</a></li>
+            <li>
+              <a href="#">La marque</a>
+            </li>
+            <li>
+              <a href="#">Nos engagements</a>
+            </li>
+            <li>
+              <a href="#">Notre Savoir-Faire</a>
+            </li>
+            <li>
+              <a href="#">Les boutiques</a>
+            </li>
+            <li>
+              <a href="#">
+                Notre site de fourniture de café pour professionnels
+              </a>
+            </li>
+            <li>
+              <a href="#">Les avis dans la presse</a>
+            </li>
           </ul>
         </div>
 
         <div className="footer_col">
           <h6 className="footer_col-title">Besoin d'aide</h6>
           <ul className="footer_links">
-            <li><a href="#">Foire aux questions</a></li>
-            <li><a href="#">Conditions générales d'utilisation</a></li>
-            <li><a href="#">Conditions générales de vente</a></li>
-            <li><a href="#">Mentions légales</a></li>
-            <li><a href="#">Nous contacter</a></li>
-            <li><a href="#">Recrutement</a></li>
+            <li>
+              <a href="#">Foire aux questions</a>
+            </li>
+            <li>
+              <a href="#">Conditions générales d'utilisation</a>
+            </li>
+            <li>
+              <a href="#">Conditions générales de vente</a>
+            </li>
+            <li>
+              <a href="#">Mentions légales</a>
+            </li>
+            <li>
+              <a href="#">Nous contacter</a>
+            </li>
+            <li>
+              <a href="#">Recrutement</a>
+            </li>
           </ul>
         </div>
 
@@ -76,11 +101,10 @@ export default function Footer() {
             </label>
           </form>
         </div>
-
       </div>
 
       <div className="footer_bottom">
-        <p>© {new Date().getFullYear()} Méo. Tous droits réservés.</p>
+        <p>© {new Date().getFullYear()} La Forge. Tous droits réservés.</p>
       </div>
     </footer>
   );

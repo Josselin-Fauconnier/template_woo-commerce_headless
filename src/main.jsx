@@ -19,7 +19,6 @@ import Store from "./pages/Store";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Error404 from "./pages/Error404";
-import UserTest from "./components/UserTest";
 import MentionsLegales from "./pages/MentionsLegales";
 import CGU from "./pages/CGU";
 import CGV from "./pages/CGV";
