@@ -17,6 +17,7 @@ import { initializeCartThunk } from "./thunkActionsCreator/cartThunks";
 import { fetchCurrentUserThunk } from "./thunkActionsCreator/userThunks";
 
 import Store from "./pages/Store";
+import Home from "./pages/Home";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import Header from "./components/Header";
@@ -57,6 +58,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     >
       <Header />
       <Routes>
+        {<Route path="/" element={<Home />} /> }
         {/* <Route path="/" element={<Store />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
