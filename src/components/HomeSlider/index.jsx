@@ -69,7 +69,7 @@ export default function HomeSlider() {
   };
 
   const handlePointerDown = (e) => {
-    if (e.pointerType !== "mouse") return;
+    if (e.pointerType !== "mouse" || isMobile) return;
     setIsDragging(true);
     dragStartX.current = e.clientX;
     lastMove.current = { x: e.clientX, t: performance.now() };
