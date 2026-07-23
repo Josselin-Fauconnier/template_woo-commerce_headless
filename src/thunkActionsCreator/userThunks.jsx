@@ -16,6 +16,8 @@ export const loginThunk = createAsyncThunk(
       if (!response.ok) {
         throw new Error(data.message || "Identifiants incorrects.");
       }
+      thunkAPI.dispatch(fetchCurrentCustomerThunk(data.token));
+      thunkAPI.dispatch(fetchCurrentUserOrdersThunk(data.token));
       return {
         token: data.token,
         profile: {
@@ -24,6 +26,80 @@ export const loginThunk = createAsyncThunk(
           nicename: data.user_nicename,
         },
       };
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const fetchCurrentUserThunk = createAsyncThunk(
+  "user/fetchCurrentUser",
+  async (_, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().user.token;
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/wp-json/wp/v2/users/me?context=edit`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        },
+      );
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || "Impossible de recuperer le profil.");
+      }
+      return {
+        id: data.id,
+        username: data.username,
+        email: data.email,
+        firstName: data.first_name,
+        lastName: data.last_name,
+        displayName: data.name,
+        roles: data.roles,
+      };
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const fetchCurrentCustomerThunk = createAsyncThunk(
+  "user/fetchCurrentCustomer",
+  async (tokenArg, thunkAPI) => {
+    try {
+      const token = tokenArg || thunkAPI.getState().user.token;
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/wp-json/custom/v1/customer`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        },
+      );
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || "Impossible de recuperer les infos client.");
+      }
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const fetchCurrentUserOrdersThunk = createAsyncThunk(
+  "user/fetchCurrentUserOrders",
+  async (tokenArg, thunkAPI) => {
+    try {
+      const token = tokenArg || thunkAPI.getState().user.token;
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/wp-json/custom/v1/orders`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        },
+      );
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || "Impossible de recuperer les commandes.");
+      }
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -50,6 +126,8 @@ export const registerThunk = createAsyncThunk(
       if (!response.ok) {
         throw new Error(data.message || "Impossible de creer le compte.");
       }
+      thunkAPI.dispatch(fetchCurrentCustomerThunk(data.token));
+      thunkAPI.dispatch(fetchCurrentUserOrdersThunk(data.token));
       return {
         token: data.token,
         profile: {
