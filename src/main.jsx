@@ -3,6 +3,7 @@ import ProductDetails from "./pages/ProductDetails";
 import "./index.css";
 
 import ReactDOM from "react-dom/client";
+import {HelmetProvider} from "react-helmet-async";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -58,12 +59,13 @@ if (store.getState().user.token) {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
-  <Provider store={store}>
-    <Router
-      future={{
-        v7_startTransition: true,
-        v7_relativeSplatPath: true,
-      }}
+  <HelmetProvider>
+    <Provider store={store}>
+      <Router
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
       //basename="/ecom"
     >
       <Header />
@@ -86,6 +88,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       </Routes>
       <Footer />
     </Router>
-  </Provider>,
+  </Provider>
+  </HelmetProvider>,
   /* </React.StrictMode>, */
 );
